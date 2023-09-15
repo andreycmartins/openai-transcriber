@@ -1,0 +1,6 @@
+[submodule "upload-ai-api"]
+	path = upload-ai-api
+	url = https://github.com/andreycmartins/upload-ai-api.git
+[submodule "upload-ai-front"]
+	path = upload-ai-front
+	url = https://github.com/andreycmartins/upload-ai-front.git
