@@ -73,7 +73,7 @@ export function App() {
           </p>
         </div>
 
-        <aside className="w-80 space-y-6">
+        <aside className="w-80 space-y-4">
           <VideoInputForm onVideoUploaded={setVideoId}/>
 
           <Separator />
@@ -101,7 +101,7 @@ export function App() {
 
             <Separator />
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               <Label>Temperatura</Label>
               <Slider
                 min={0}

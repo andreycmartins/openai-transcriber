@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useMemo, useRef, useState } from "react";
 import { getFFmpeg } from "@/lib/ffmpeg";
 import { fetchFile } from "@ffmpeg/util"
 import { api } from "@/lib/axios";
+import swal from "sweetalert";
 
 type Status = 'waiting' | 'converting' | 'uploading' | 'generating' | 'success'
 
@@ -34,6 +35,14 @@ export function VideoInputForm(props: VideoInputForm) {
         }
 
         const selectedFile = files[0]
+
+        if (selectedFile.size >= 26214400) {
+            swal({
+                title: 'O arquivo não pode exceder 25MB',
+                icon: 'error',
+            })
+            return
+        }
 
         setVideoFile(selectedFile)
     }
@@ -116,7 +125,7 @@ export function VideoInputForm(props: VideoInputForm) {
     }, [videoFile])
 
     return (
-        <form className="space-y-6" onSubmit={handleUploadVideo}>
+        <form className="space-y-4" onSubmit={handleUploadVideo}>
             <label
                 htmlFor="video"
                 className=" relative border flex rounded-md aspect-video cursor-pointer border-dashed text-sm flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/5"
