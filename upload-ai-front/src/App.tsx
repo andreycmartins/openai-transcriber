@@ -38,20 +38,22 @@ export function App() {
         <h1 className="text-xl font-bold">upload.ai</h1>
 
         <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground">
+          <span className="text-sm text-muted-foreground hidden sm:block">
             Desenvolvido por Andrey Martins
           </span>
 
-          <Separator orientation="vertical" className="h-6" />
+          <Separator orientation="vertical" className="h-6 hidden sm:block" />
 
-          <Button variant="outline">
-            <Github className="w-4 h-4 mr-2" />
-            GitHub
-          </Button>
+          <a href="https://github.com/andreycmartins" target='_blank'>
+            <Button variant="outline">
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </Button>
+          </a>
         </div>
       </div>
 
-      <main className="flex-1 p-6 flex gap-6">
+      <main className="flex-col-reverse flex-1 p-6 flex sm:flex-row gap-6">
         <div className="flex flex-col flex-1 gap-4">
           <div className="grid grid-rows-2 gap-4 flex-1">
             <Textarea
@@ -73,7 +75,7 @@ export function App() {
           </p>
         </div>
 
-        <aside className="w-80 space-y-4">
+        <aside className="w-100 sm:w-80 space-y-4">
           <VideoInputForm onVideoUploaded={setVideoId}/>
 
           <Separator />
@@ -124,6 +126,7 @@ export function App() {
           </form>
         </aside>
       </main>
+      <span className='text-center text-muted-foreground mb-2 sm:hidden'>Desenvolvido por Andrey Martins</span>
     </div>
   )
 }
